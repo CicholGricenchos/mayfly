@@ -44,38 +44,9 @@ body.custom-background { background-color: #e6e6e6; }
 			</header><!-- #masthead -->
 
 	<div id="main" class="wrapper">
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
-
-			
-				
-	<article class="post">
-				<header class="entry-header">
-									<h1 class="entry-title"><%= @title %></h1>
-								</header><!-- .entry-header -->
-
-				<div class="entry-content">
-					<p>
-						<%= @content %>
-					</p>
-				</div><!-- .entry-content -->
 		
-		<footer class="entry-meta">
-			本条目发布于<a href="http://may-fly.org/archives/12" title="下午1:45" rel="bookmark"><time class="entry-date" datetime="2014-05-11T13:45:30+00:00">date</time></a>。属于<a href="http://may-fly.org/archives/category/uncategorized" title="查看未分类中的全部文章" rel="category tag">category</a>分类。<span class="by-author">作者是<span class="author vcard"><a class="url fn n" href="http://may-fly.org/archives/author/cichol" title="查看所有由Cichol发布的文章" rel="author">Cichol</a></span>。</span>								</footer><!-- .entry-meta -->
-	</article><!-- #post -->
-
-
-				
-<div id="comments" class="comments-area">
-
-</div><!-- #comments .comments-area -->
-			
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-
 			<div id="secondary" class="widget-area" role="complementary">
-			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://may-fly.org/">
+			<aside id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://may-fly.org/search">
 				<div>
 					<label class="screen-reader-text" for="s">搜索：</label>
 					<input type="text" value="" name="s" id="s" />
@@ -91,10 +62,11 @@ body.custom-background { background-color: #e6e6e6; }
 </li>
 		</ul>
 </aside>		</div><!-- #secondary -->
+	<%= @content %>
 		</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
-						<a href="http://cn.wordpress.org/" title="优雅的个人发布平台">改自 TwentyTwelve </a>
+			Powered by CicholGricenchos
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

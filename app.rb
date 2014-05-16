@@ -14,3 +14,9 @@ get "/admin" do
   @session = session[:verified]? "verified : true" : "verified : false"
   erb :admin
 end
+
+post "/new_article" do 
+  if session[:verified]
+    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief])
+  end
+end

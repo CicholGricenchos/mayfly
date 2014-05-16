@@ -19,7 +19,7 @@ end
 
 post "/new_article" do 
   if session[:verified]
-    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief])
+    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief], :author => 1, :category => 3)
   end
 end
 
@@ -38,7 +38,7 @@ end
 
 get '/' do
   @page_title = "蜉蝣人文爱好小组"
-  articles = Article.all
+  articles = Article.order("id DESC").limit(10).all
   @content = ""
   articles.each do |x|
     @id = x.id

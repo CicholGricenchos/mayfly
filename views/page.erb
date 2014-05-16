@@ -18,7 +18,7 @@
 <script src="http://may-fly.org/wp-content/themes/twentytwelve/js/html5.js" type="text/javascript"></script>
 <![endif]-->
 <link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
-<link rel='stylesheet' id='twentytwelve-style-css'  href='./css/style.css?ver=3.7.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='http://localhost:4567/css/style.css?ver=3.7.1' type='text/css' media='all' />
 <!--[if lt IE 9]>
 <link rel='stylesheet' id='twentytwelve-ie-css'  href='http://may-fly.org/wp-content/themes/twentytwelve/css/ie.css?ver=20121010' type='text/css' media='all' />
 <![endif]-->
@@ -52,14 +52,9 @@ body.custom-background { background-color: #e6e6e6; }
 					<input type="text" value="" name="s" id="s" />
 					<input type="submit" id="searchsubmit" value="搜索" />
 				</div>
-			</form></aside>		<aside id="recent-posts-2" class="widget widget_recent_entries">		<h3 class="widget-title">近期文章</h3>		<ul>
-					<li>
-				<a href="http://may-fly.org/archives/12">menu element</a>
-						</li>
-				</ul>
-		</aside><aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">分类目录</h3>		<ul>
-	<li class="cat-item cat-item-1"><a href="http://may-fly.org/archives/category/uncategorized" title="查看未分类下的所有文章">menu element</a>
-</li>
+			</form></aside>
+			<aside id="categories-2" class="widget widget_categories"><h3 class="widget-title">分类目录</h3>		<ul>
+	<%= @category_list %>
 		</ul>
 </aside>		</div><!-- #secondary -->
 	<%= @content %>

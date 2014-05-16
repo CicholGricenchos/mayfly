@@ -32,8 +32,16 @@ get "/article/:id" do
   @brief = article.brief
   @author = User.find(article.author).name
   @category = Category.find(article.category).name
+  @category_id = Category.find(x.category).id
   @page_title = "蜉蝣人文爱好小组 - #{@title}"
   @content = erb :article
+  @category_list = ""
+  categories = Category.all
+  categories.each do |x|
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
+  end
   erb :page
 end
 
@@ -48,11 +56,40 @@ get '/' do
     @date = x.created_at
     @author = User.find(x.author).name
     @category = Category.find(x.category).name
+    @category_id = Category.find(x.category).id
     @content += erb :index
+  end
+  @category_list = ""
+  categories = Category.all
+  categories.each do |x|
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
   end
   erb :page
 end
 
-get '/style.css' do 
-  File.open("./views/style.css")
+get "/category/:id" do 
+  @name = Category.find(params[:id].to_i).name
+  @page_title = "蜉蝣人文爱好小组 - #{@name}"
+  articles = Article.where(:category => params[:id].to_i).order("id DESC").limit(10)
+  @content = ""
+  articles.each do |x|
+    @id = x.id
+    @brief = x.brief
+    @title = x.title
+    @date = x.created_at
+    @author = User.find(x.author).name
+    @category = Category.find(x.category).name
+    @category_id = Category.find(x.category).id
+    @content += erb :index
+  end
+  @category_list = ""
+  categories = Category.all
+  categories.each do |x|
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
+  end
+  erb :page
 end

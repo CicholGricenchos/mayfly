@@ -20,3 +20,20 @@ post "/new_article" do
     Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief])
   end
 end
+
+get "/article/:id" do 
+  article = Article.find(params[:id])
+  @content = Maruku.new(article.content)
+  @content = @content.to_html
+  @title = article.title
+  @date = article.created_at
+  @author = User.find(article.author).name
+  @category = Category.find(article.category).name
+  @page_title = "蜉蝣人文爱好小组 - #{@title}"
+  @content = erb :article
+  erb :page
+end
+
+get '/' do
+
+end

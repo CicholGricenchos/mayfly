@@ -52,3 +52,7 @@ get '/' do
   end
   erb :page
 end
+
+get '/style.css' do 
+  File.open("./views/style.css")
+end

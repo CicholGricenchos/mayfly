@@ -29,6 +29,5 @@ get "/article/:id" do
   @date = article.created_at
   @author = User.find(article.author).name
   @category = Category.find(article.category).name
-  @page_title = "蜉蝣人文爱好小组 - #{@title}"
 
 end

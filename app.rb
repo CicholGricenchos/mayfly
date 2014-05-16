@@ -1,3 +1,5 @@
+#encoding : utf-8
+
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'maruku'
@@ -29,5 +31,23 @@ get "/article/:id" do
   @date = article.created_at
   @author = User.find(article.author).name
   @category = Category.find(article.category).name
+  @page_title = "蜉蝣人文爱好小组 - #{@title}"
+  @content = erb :article
+  erb :page
+end
 
+get '/' do
+  @page_title = "蜉蝣人文爱好小组"
+  articles = Article.all
+  @content = ""
+  articles.each do |x|
+    @id = x.id
+    @brief = x.brief
+    @title = x.title
+    @date = x.created_at
+    @author = User.find(x.author).name
+    @category = Category.find(x.category).name
+    @content += erb :index
+  end
+  erb :page
 end

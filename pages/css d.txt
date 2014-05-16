@@ -1,0 +1,6 @@
+nav-above
+comment-nav-above
+respond
+wp-calendar
+wpstats
+colophon

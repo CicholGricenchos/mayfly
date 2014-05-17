@@ -95,3 +95,8 @@ get "/category/:id" do
   erb :page
 end
 
+get "/database" do 
+  if session[:verified]
+    FileUtils.cp("development.sqlite3","./public")
+  end
+end

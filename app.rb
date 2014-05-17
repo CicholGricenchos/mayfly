@@ -6,6 +6,7 @@ require 'maruku'
 require './models/article'
 require './models/user'
 require './models/category'
+require 'fileutils'
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
@@ -92,4 +93,10 @@ get "/category/:id" do
     @category_list += erb :category_list
   end
   erb :page
+end
+
+get "/database" do 
+  if session[:verified]
+    FileUtils.cp("development.sqlite3","./public")
+  end
 end

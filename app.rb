@@ -33,7 +33,7 @@ get "/article/:id" do
   @brief = article.brief
   @author = User.find(article.author).name
   @category = Category.find(article.category).name
-  @category_id = Category.find(x.category).id
+  @category_id = Category.find(article.category).id
   @page_title = "蜉蝣人文爱好小组 - #{@title}"
   @content = erb :article
   @category_list = ""
@@ -98,5 +98,6 @@ end
 get "/database" do 
   if session[:verified]
     FileUtils.cp("development.sqlite3","./public")
+    "Verified OK, Database in the place."
   end
 end

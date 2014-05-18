@@ -58,6 +58,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+	font-family: PMingliu;
 }
 body {
 	line-height: 1;
@@ -698,6 +699,7 @@ footer[role="contentinfo"] a:hover {
 	font-size: 1.428571429rem;
 	line-height: 1.2;
 	font-weight: normal;
+	font-family: Microsoft YaHei;
 }
 .entry-header .entry-title a {
 	text-decoration: none;
@@ -1460,7 +1462,6 @@ img#wpstats {
 	width: device-width;
 }
 
-/* Minimum width of 600 pixels. */
 @media screen and (min-width: 600px) {
 	.author-avatar {
 		float: left;
@@ -1634,10 +1635,8 @@ img#wpstats {
 		margin-left: 48px;
 		margin-left: 3.428571429rem;
 	}
-}
 
-/* Minimum width of 960 pixels. */
-@media screen and (min-width: 960px) {
+	
 	body {
 		background-color: #e6e6e6;
 	}

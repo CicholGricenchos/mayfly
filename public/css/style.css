@@ -1462,7 +1462,7 @@ img#wpstats {
 	width: device-width;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 300px) {
 	.author-avatar {
 		float: left;
 		margin-top: 8px;
@@ -1765,4 +1765,8 @@ img#wpstats {
 		margin-left: 50px;
 		margin-left: 3.57142857rem;
 	}
+}
+
+#page {
+width: 960px; /*or whatever width you want the site to be*/
 }

@@ -58,7 +58,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
-	font-family: PMingliu;
 }
 body {
 	line-height: 1;
@@ -699,7 +698,6 @@ footer[role="contentinfo"] a:hover {
 	font-size: 1.428571429rem;
 	line-height: 1.2;
 	font-weight: normal;
-	font-family: Microsoft YaHei;
 }
 .entry-header .entry-title a {
 	text-decoration: none;
@@ -958,14 +956,11 @@ img.aligncenter,
 	padding: 6px 10px 6px 0;
 }
 .site-content article {
-	border-bottom: 2px solid #ededed;
-/*	margin-bottom: 72px;
+	border-bottom: 4px double #ededed;
+	margin-bottom: 72px;
 	margin-bottom: 5.142857143rem;
 	padding-bottom: 24px;
-	padding-bottom: 1.714285714rem; */
-	margin-bottom: 0px;
-	padding-bottom: 20px;
-	
+	padding-bottom: 1.714285714rem;
 	word-wrap: break-word;
 	-webkit-hyphens: auto;
 	-moz-hyphens: auto;
@@ -1462,7 +1457,8 @@ img#wpstats {
 	width: device-width;
 }
 
-@media screen and (min-width: 300px) {
+/* Minimum width of 600 pixels. */
+@media screen and (min-width: 10px) {
 	.author-avatar {
 		float: left;
 		margin-top: 8px;
@@ -1635,8 +1631,10 @@ img#wpstats {
 		margin-left: 48px;
 		margin-left: 3.428571429rem;
 	}
+}
 
-	
+/* Minimum width of 960 pixels. */
+@media screen and (min-width: 10px) {
 	body {
 		background-color: #e6e6e6;
 	}
@@ -1767,6 +1765,3 @@ img#wpstats {
 	}
 }
 
-#page {
-width: 960px; /*or whatever width you want the site to be*/
-}

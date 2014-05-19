@@ -40,6 +40,7 @@ nav {
   line-height: 37px;
   border-top: 1.2px solid #e6e6e6;
   border-bottom: 1.2px solid #e6e6e6;
+  margin-bottom: 15px;
 }
 
 nav a {
@@ -67,6 +68,7 @@ nav a.current {
 
 article {
   display: block;
+  padding-bottom: 7px;
   border-bottom: 1.2px solid #e6e6e6;
 }
 
@@ -111,7 +113,8 @@ footer {
 
 article h2.title {
   font-family: Simsun;
-  font-size: 20px;
+  font-size: 19px;
+  font-weight: normal;
 }
 
 article h2.title a{

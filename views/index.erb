@@ -1,17 +1,5 @@
-
-	<div id="primary" class="site-content">
-		<div id="content" role="main">
-	<article class="post">
-				<header class="entry-header">
-									<h1 class="entry-title"><a href="./article/<%= @id %>"><%= @title %></a></h1>
-								</header><!-- .entry-header -->
-
-				<div class="entry-content">
-					<p>摘要：<%= @brief %></p>
-				</div><!-- .entry-content -->
-		
-		<footer class="entry-meta">
-			本条目发布于<time class="entry-date"><%= @date %></time>。属于<a href="http://may-fly.org/category/<%= @category_id %>" title="查看<%= @category %>中的全部文章" rel="category tag"><%= @category %></a>分类。作者是<span class="author"><a class="url fn n" href="http://may-fly.org/author/cichol" title="查看所有由Cichol发布的文章" rel="author"><%= @author %></a></span>。							</footer><!-- .entry-meta -->
-	</article><!-- #post -->
-		</div><!-- #content -->
-	</div><!-- #primary -->
+<article>
+	<h2 class="title"><a href="./article/<%= @id %>"><%= @title %></a></h2>
+	<p class="brief">摘要：<%= @brief %></p>
+	<p class="footer">本条目发布于<time><%= @date %></time>。属于<a href="http://may-fly.org/category/<%= @category_id %>" title="查看<%= @category %>中的全部文章"><%= @category %></a>分类。作者是<a class="url fn n" href="http://may-fly.org/user/1" title="查看所有由Cichol发布的文章"><%= @author %></a>。</p>
+</article>

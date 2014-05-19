@@ -1,0 +1,149 @@
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  background-color: #e6e6e6;
+}
+
+#site {
+  padding: 10px 40px;
+  padding-top: 36px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+header {
+  font-family: Simsun;
+}
+
+header a.title {
+  color: #555;
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+header p.description {
+  color: #5e5e5e;
+  font-size: 13px;
+}
+
+nav {
+  margin-top: 25px;
+  padding: auto 0px;
+  line-height: 37px;
+  border-top: 1.2px solid #e6e6e6;
+  border-bottom: 1.2px solid #e6e6e6;
+}
+
+nav a {
+  margin-right: 50px;
+  font-size: 13px;
+  font-family: Simsun;
+  text-decoration: none;
+  color: #5e5e5e;
+  display: inline;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a.current {
+  color: #555;
+  font-weight: bold;
+}
+
+#content {
+  width: 65%;
+  float: left;
+}
+
+article {
+  display: block;
+  border-bottom: 1.2px solid #e6e6e6;
+}
+
+aside {
+  width: 20%;
+  float: left;
+  margin-left: 50px;
+  padding-top: 10px;
+}
+
+aside ul p.menu-title {
+  font-family: Simsun;
+  font-size: 13px;
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+aside ul {
+  margin-bottom: 30px;
+}
+
+aside ul li{
+  list-style: none;
+  text-decoration: underline;
+}
+
+aside ul li a {
+  font-family: Simsun;
+  color: #777;
+  font-size: 13px;
+
+}
+
+footer {
+  display: inline-block;
+  width: 960px;
+  font-size: 10px;
+  font-family: Arial;
+  color: #777;
+}
+
+article h2.title {
+  font-family: Simsun;
+  font-size: 20px;
+}
+
+article h2.title a{
+  text-decoration: none;
+  color: #777;
+}
+
+article h2.title a:hover {
+  color: #333;
+}
+
+article p {
+  font-size: 15px;
+  color: #555;
+}
+
+article p.brief {
+  font-size: 15px;
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+article p.footer {
+  font-size: 13px;
+  color: #5e5e5e;
+}
+
+article p.footer a {
+  color: #5e5e5e;
+}
+article h1,h2,h3,h4,h5,h6,p {
+  font-family: PMingliu;
+  color: #555;
+}

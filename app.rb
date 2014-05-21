@@ -90,7 +90,7 @@ get '/' do
     @category_name = x.name
     @category_list += erb :category_list
   end
-  erb :site_page
+  erb :index_page
 end
 
 get "/category/1" do 
@@ -148,4 +148,21 @@ get "/database" do
     FileUtils.cp("development.sqlite3","./public")
     "Verified OK, Database in the place."
   end
+end
+
+get "/user/:id" do 
+  user = User.find(params[:id])
+  @introduction = Maruku.new(user.introduction)
+  @introduction = @introduction.to_html
+  @name = user.name
+  @page_title = "蜉蝣人文爱好小组 - #{@name}"
+  @content = erb :user
+  @category_list = ""
+  categories = Category.where("id != 4").all
+  categories.each do |x|
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
+  end
+  erb :site_page
 end

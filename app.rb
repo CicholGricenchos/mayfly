@@ -6,6 +6,7 @@ require 'maruku'
 require './models/article'
 require './models/user'
 require './models/category'
+require './models/article_comment'
 require 'fileutils'
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
@@ -24,7 +25,7 @@ post "/new_article" do
   end
 end
 
-get "/article/9" do
+get "/article/9" do 
   article = Article.find(9)
   @content = Maruku.new(article.content)
   @content = @content.to_html
@@ -43,6 +44,16 @@ get "/article/9" do
     @category_name = x.name
     @category_list += erb :category_list
   end
+  @comment = ""
+  comments = ArticleComment.where(:article_id => 9).all
+  comments.each do |x|
+    @comment_author = x.author 
+    @comment_time = x.created_at 
+    @comment_content = x.content 
+    @comment += erb :comment 
+  end
+  @article_id = 9
+  @comment_area = erb :comment_area
   erb :about_page
 end
 
@@ -65,7 +76,17 @@ get "/article/:id" do
     @category_name = x.name
     @category_list += erb :category_list
   end
-  erb :site_page
+  @comment = ""
+  comments = ArticleComment.where(:article_id => params[:id].to_i).all
+  comments.each do |x|
+    @comment_author = x.author 
+    @comment_time = x.created_at 
+    @comment_content = x.content 
+    @comment += erb :comment 
+  end
+  @article_id = params[:id]
+  @comment_area = erb :comment_area
+  erb :article_page
 end
 
 get '/' do
@@ -165,4 +186,9 @@ get "/user/:id" do
     @category_list += erb :category_list
   end
   erb :site_page
+end
+
+post "/article_comment/:id" do 
+  ArticleComment.create(:article_id => params[:id].to_i, :content => params[:content].gsub(/<\/?.*?>/,""), :author => params[:name].gsub(/<\/?.*?>/,""))
+  redirect to("/article/#{params[:id]}")
 end

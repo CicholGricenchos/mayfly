@@ -152,3 +152,35 @@ article h1,h2,h3,h4,h5,h6,p {
   font-family: PMingliu;
   color: #333;
 }
+
+.comment {
+  padding: 5px 0px;
+  margin-top: 2px;
+  border-top: 1.2px solid #e6e6e6;
+}
+
+.comment .author {
+
+  font-size: 13px;
+  color: #111;
+  display: inline;
+}
+
+.comment .time {
+  margin-left: 10px;
+  font-size: 13px;
+  display: inline;
+  color: #777;
+}
+
+.comment .content {
+  font-size: 16px;
+  color: #333;
+}
+
+.comment_area {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  border-bottom: 1.2px solid #e6e6e6;
+  line-height: 0px;
+}

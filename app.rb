@@ -20,8 +20,30 @@ end
 
 post "/new_article" do 
   if session[:verified]
-    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief], :author => 1, :category => 3)
+    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief], :author => 1, :category => 4)
   end
+end
+
+get "/article/9" do
+  article = Article.find(9)
+  @content = Maruku.new(article.content)
+  @content = @content.to_html
+  @title = article.title
+  @date = article.created_at
+  @brief = article.brief
+  @author = User.find(article.author).name
+  @category = Category.find(article.category).name
+  @category_id = Category.find(article.category).id
+  @page_title = "蜉蝣人文爱好小组 - #{@title}"
+  @content = erb :article
+  @category_list = ""
+  categories = Category.where("id != 4").all
+  categories.each do |x|
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
+  end
+  erb :about_page
 end
 
 get "/article/:id" do 
@@ -37,18 +59,18 @@ get "/article/:id" do
   @page_title = "蜉蝣人文爱好小组 - #{@title}"
   @content = erb :article
   @category_list = ""
-  categories = Category.all
+  categories = Category.where("id != 4").all
   categories.each do |x|
     @category_id = x.id
     @category_name = x.name
     @category_list += erb :category_list
   end
-  erb :page
+  erb :site_page
 end
 
 get '/' do
   @page_title = "蜉蝣人文爱好小组"
-  articles = Article.order("id DESC").limit(10).all
+  articles = Article.order("id DESC").where("category != 4").limit(10).all
   @content = ""
   articles.each do |x|
     @id = x.id
@@ -58,16 +80,42 @@ get '/' do
     @author = User.find(x.author).name
     @category = Category.find(x.category).name
     @category_id = Category.find(x.category).id
-    @content += erb :index
+    @content += erb :menu
   end
   @category_list = ""
-  categories = Category.all
+  categories = Category.where("id != 4").all
+  categories.each do |x|
+    next if x.id==4
+    @category_id = x.id
+    @category_name = x.name
+    @category_list += erb :category_list
+  end
+  erb :site_page
+end
+
+get "/category/1" do 
+  @name = Category.find(1).name
+  @page_title = "蜉蝣人文爱好小组 - #{@name}"
+  articles = Article.where(:category => 1).order("id DESC").limit(10)
+  @content = ""
+  articles.each do |x|
+    @id = x.id
+    @brief = x.brief
+    @title = x.title
+    @date = x.created_at
+    @author = User.find(x.author).name
+    @category = Category.find(x.category).name
+    @category_id = Category.find(x.category).id
+    @content += erb :menu
+  end
+  @category_list = ""
+  categories = Category.where("id != 4").all
   categories.each do |x|
     @category_id = x.id
     @category_name = x.name
     @category_list += erb :category_list
   end
-  erb :page
+  erb :design_page
 end
 
 get "/category/:id" do 
@@ -83,16 +131,16 @@ get "/category/:id" do
     @author = User.find(x.author).name
     @category = Category.find(x.category).name
     @category_id = Category.find(x.category).id
-    @content += erb :index
+    @content += erb :menu
   end
   @category_list = ""
-  categories = Category.all
+  categories = Category.where("id != 4").all
   categories.each do |x|
     @category_id = x.id
     @category_name = x.name
     @category_list += erb :category_list
   end
-  erb :page
+  erb :site_page
 end
 
 get "/database" do 

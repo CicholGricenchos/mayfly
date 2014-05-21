@@ -8,4 +8,3 @@ require './models/category'
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
-a = Article.find(7)

@@ -106,9 +106,10 @@ aside ul li a {
 footer {
   display: inline-block;
   width: 960px;
-  font-size: 10px;
+  font-size: 11px;
   font-family: Arial;
   color: #777;
+  letter-spacing: 0.7px;
 }
 
 article h2.title {

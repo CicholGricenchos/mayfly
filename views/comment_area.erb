@@ -1,7 +1,7 @@
-<div class="comment_area" >
+<div class="comment-form" >
 	<form action="http://may-fly.org/article_comment/<%= @article_id %>" method="post" class="comment-form">
-		<p><input type="text" name="name" value="输入名称"/></p>
-		<p><textarea name="content" rows="3" cols="50">输入留言</textarea></p>
+		<input class="input-author" type="text" name="name" value="输入名称"/><br />
+		<textarea class="input-content" name="content">输入留言</textarea><br />
 		<input type="submit" value="提交" />
 	</form>
 </div>

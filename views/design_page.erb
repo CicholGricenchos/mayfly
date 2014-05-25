@@ -4,16 +4,15 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title><%= @page_title %></title>
 	<link rel="stylesheet" href="http://may-fly.org/css/user.css">
-	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=25502196" charset="UTF-8"></script>
 	</head>
 
 	<body>
-	<div id="site" class="container">
+	<div id="page">
 	
 		<header>
 		<hgroup>
-			<a class="title" href="http://may-fly.org/" title="蜉蝣人文爱好小组">蜉蝣人文爱好小组</a>
-			<p class="description">心之忧矣，於我归处。</p>
+			<h1 id="site-title" href="http://may-fly.org/" title="蜉蝣人文爱好小组">蜉蝣人文爱好小组</h1>
+			<p id="site-description">心之忧矣，於我归处。</p>
 		</hgroup>
 
 			<nav>	
@@ -23,9 +22,10 @@
 			</nav>
 		</header>
 
-		<div id="content">
+		<div id="page-content">
 			<%= @content %>
 		</div>
+
 
 		<aside>
 			<ul><p class="menu-title">分类目录</p>

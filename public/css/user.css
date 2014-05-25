@@ -8,47 +8,47 @@ a:hover {
 }
 
 body {
-	background-color: #e6e6e6;
+	background-color: #ddd;
 }
 
 #page {
 	padding: 10px 40px;
-	padding-top: 36px;
-	margin-top: 48px;
-	margin-bottom: 48px;
+	margin: 48px auto;
 	box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
 	background-color: #fff;
-	margin-left: auto;
-	margin-right: auto;
 	width: 960px;
 }
 
-header #site-title {
+header #site-title a {
 	color: #555;
 	text-decoration: none;
 	font-size: 25px;
 	font-weight: bold;
-	font-family: Simsun;
+	font-family: Simsun,serif;
+}
+
+header #site-title a:hover {
+	color: #21759b;
 }
 
 header #site-description {
 	color: #5e5e5e;
 	font-size: 13px;
-	font-family: Simsun;
+	font-family: Simsun,serif;
 }
 
 nav {
 	margin-top: 25px;
 	padding: 9px 0px;
-	border-top: 1.2px solid #e6e6e6;
-	border-bottom: 1.2px solid #e6e6e6;
+	border-top: 1.2px solid #ddd;
+	border-bottom: 1.2px solid #ddd;
 	margin-bottom: 15px;
 }
 
 nav a {
 	margin-right: 50px;
 	font-size: 13px;
-	font-family: Simsun;
+	font-family: Simsun,serif;
 	text-decoration: none;
 	color: #5e5e5e;
 	display: inline;
@@ -68,13 +68,6 @@ nav a.current {
 	float: left;
 }
 
-article {
-	display: block;
-	padding-bottom: 15px;
-	margin-bottom: 30px;
-	border-bottom: 4px double #e6e6e6;
-}
-
 aside {
 	width: 20%;
 	float: left;
@@ -82,7 +75,7 @@ aside {
 }
 
 aside ul .menu-title {
-	font-family: Simsun;
+	font-family: Simsun,serif;
 	font-size: 13px;
 	color: #555;
 	font-weight: bold;
@@ -98,48 +91,74 @@ aside ul li {
 }
 
 aside ul li a {
-	font-family: Simsun;
+	font-family: Simsun,serif;
 	color: #777;
 	font-size: 13px;
 	text-decoration: underline;
 }
 
+aside ul li a:hover {
+	color: #21759b;
+	text-decoration: underline;
+}
 footer {
 	display: inline-block;
 	width: 100%;
-	border-top: 1.2px solid #e6e6e6;
+	border-top: 1.2px solid #ddd;
 	margin-top: 50px;
 	margin-bottom: 12px;
 }
 
 footer p {
 	font-size: 12px;
-	font-family: Arial;
+	font-family: Arial,sans-serif;
 	color: #555;
 }
 
+article {
+	display: block;
+	padding-bottom: 15px;
+	margin-bottom: 30px;
+	border-bottom: 4px double #ddd;
+}
+
 article .article-title {
-	font-family: Simsun;
+	font-weight: bold;
+	font-family: Simsun,serif;
 	font-size: 19px;
 }
 
 article .article-title a {
-	color: #777;
+	font-weight: bold;
+	color: #21759b;
 }
 
 article .article-title a:hover {
 	color: #333;
 }
 
-article .article-content {
+article p,h3,h4,blockquote {
+	font-family: Simsun,serif;
+	font-size: 15px;
+	line-height: 150%;
+	color: #444;
+}
+
+article h3 {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+article h4 {
 	font-size: 16px;
-	color: #555;
+	font-weight: bold;
 }
 
 article .article-brief {
 	font-size: 15px;
 	color: #111;
-	margin: 20px 0px;
+	margin: 25px 0px;
+	background-color: #f3f3f3;
 }
 
 article .article-footer {
@@ -151,14 +170,12 @@ article .article-footer a {
 	color: #5e5e5e;
 }
 
-article h1,h2,h3,h4,h5,h6,p {
-	font-family: PMingliu;
-	color: #333;
+article .article-footer a:hover {
+	text-decoration: underline;
 }
-
 .comment {
 	padding: 7px 0px;
-	border-bottom: 1.2px solid #e6e6e6;
+	border-bottom: 1.2px solid #ddd;
 }
 
 .comment .comment-author {

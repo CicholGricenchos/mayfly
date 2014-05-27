@@ -1,3 +1,4 @@
+#encoding : utf-8
 
 get "/admin/login" do 
   erb :'admin/login'

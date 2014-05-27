@@ -2,5 +2,5 @@
 	<h2 class="article-title"><%= @title %></h2>
 	<p class="article-brief">摘要：<%= @brief %></p>
 	<%= @content %>
-	<p class="article-footer">本条目发布于<time><%= @date %></time>。属于<a href="http://may-fly.org/category/<%= @category_id %>" title="查看<%= @category %>中的全部文章"><%= @category %></a>分类。作者是<a class="url fn n" href="http://may-fly.org/user/1" title="三无废柴宅，程序猿，假文科生，怕死，中二病，玻璃心。有胡思乱想之怪癖，屡禁不止，无药可医。"><%= @author %></a>。</p>
+	<p class="article-footer">本条目发布于<time><%= @date %></time>。属于<a href="<%= $SITE_URL %>/category/<%= @category_id %>" title="查看<%= @category %>中的全部文章"><%= @category %></a>分类。作者是<a class="url fn n" href="<%= $SITE_URL %>/user/1" title="三无废柴宅，程序猿，假文科生，怕死，中二病，玻璃心。有胡思乱想之怪癖，屡禁不止，无药可医。"><%= @author %></a>。</p>
 </article>

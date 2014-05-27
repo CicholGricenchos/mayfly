@@ -8,6 +8,9 @@ require './models/user'
 require './models/category'
 require './models/article_comment'
 require 'fileutils'
+require './controllers/admin'
+
+$SITE_URL = "http://localhost:4567"
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
@@ -37,13 +40,14 @@ get '/' do
   end
   @current_nav = 1
   @nav = erb :nav
+  @meta_description = "致力于改善高校校园人文环境，社会人文的观察者，热诚的实践者。"
+  @meta_keywords = "蜉蝣,人文,哲学,社会,教育"
   erb :site_page
 end
 
 get "/article/:id" do 
   article = Article.find(params[:id])
-  @content = Maruku.new(article.content)
-  @content = @content.to_html
+  @content = Maruku.new(article.content).to_html
   @title = article.title
   @date = article.created_at
   @brief = article.brief
@@ -103,8 +107,7 @@ end
 
 get "/user/:id" do 
   user = User.find(params[:id])
-  @introduction = Maruku.new(user.introduction)
-  @introduction = @introduction.to_html
+  @introduction = Maruku.new(user.introduction).to_html
   @name = user.name
   @page_title = "蜉蝣人文爱好小组 - #{@name}"
   @content = erb :user
@@ -121,23 +124,4 @@ end
 post "/article_comment/:id" do 
   ArticleComment.create(:article_id => params[:id].to_i, :content => params[:content].gsub(/<\/?.*?>/,""), :author => params[:name].gsub(/<\/?.*?>/,""))
   redirect to("/article/#{params[:id]}")
-end
-
-get "/database" do 
-  if session[:verified]
-    FileUtils.cp("development.sqlite3","./public")
-    "Verified OK, Database in the place."
-  end
-end
-
-get "/admin" do 
-  session[:verified] = true if params[:pass] == "mayflyorg"
-  @session = session[:verified]? "verified : true" : "verified : false"
-  erb :admin
-end
-
-post "/new_article" do 
-  if session[:verified]
-    Article.create(:title => params[:title], :content => params[:content], :brief => params[:brief], :author => 1, :category => 4)
-  end
 end

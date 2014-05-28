@@ -10,7 +10,7 @@ require './models/article_comment'
 require 'fileutils'
 require './controllers/admin'
 
-$SITE_URL = "http://may-fly.org"
+$SITE_URL = "http://localhost:4567"
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 

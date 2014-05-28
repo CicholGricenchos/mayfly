@@ -9,4 +9,5 @@ require './models/article_comment'
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
-ArticleComment.delete [1,2,4]
+Category.create(:name => '随笔')
+Article.create(:title => '',:author => 1, :category => 5, :brief => '', :content => '')

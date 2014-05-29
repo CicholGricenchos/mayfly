@@ -14,8 +14,8 @@
 	
 		<header>
 		<hgroup>
-			<h1 id="site-title"><a href="<%= $SITE_URL %>" title="蜉蝣人文爱好小组">蜉蝣人文爱好小组</a></h1>
-			<p id="site-description">心之忧矣，於我归处。</p>
+			<h1 id="site-title"><a href="<%= $SITE_URL %>" title="<%= @site_title %>"><%= @site_title %></a></h1>
+			<p id="site-description"><%= @site_description %></p>
 		</hgroup>
 
 			<nav>	
@@ -25,7 +25,9 @@
 
 		<div id="page-content">
 			<%= @content %>
+			<%= @page_bar unless @page_bar.nil? %>
 			<%= @comment unless @comment.nil? %>
+			<%= @comment_page_bar unless @comment_page_bar.nil? %>
 			<%= @comment_form unless @comment_form.nil? %>
 		</div>
 
@@ -36,7 +38,7 @@
 		</aside>
 
 		<footer>
-			<p>powered by CicholGricenchos</p>
+			<p><%= @site_footer %></p>
 		</footer>
 	</div>
 	</body>

@@ -2,8 +2,13 @@
 <html lang="zh-cn">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>蜉蝣人文爱好小组-管理页</title>
+	<title>蜉蝣-管理页</title>
 	<link rel="stylesheet" href="<%= $SITE_URL %>/css/user.css">
+	<style>
+		input,textarea {
+			width: 750px;
+		}
+	</style>
 	</head>
 
 	<body>
@@ -11,22 +16,22 @@
 	
 		<header>
 		<hgroup>
-			<h1 id="site-title"><a href="<%= $SITE_URL %>/admin" title="蜉蝣人文爱好小组">蜉蝣人文爱好小组-管理页</a></h1>
+			<h1 id="site-title"><a href="<%= $SITE_URL %>/admin">蜉蝣-管理页</a></h1>
 			<p id="site-description">心之忧矣，於我归处。</p>
 		</hgroup>
 
 			<nav>	
 				<a href="<%= $SITE_URL %>/admin">管理首页</a>
+				<a href="<%= $SITE_URL %>/admin/new/article">添加新文章</a>
 				<a href="<%= $SITE_URL %>/admin/comment">评论管理</a>
 				<a href="<%= $SITE_URL %>/admin/category">分类管理</a>
 				<a href="<%= $SITE_URL %>/admin/database">数据库备份</a>
+				<a href="<%= $SITE_URL %>/admin/site_config">站点信息设置</a>
 			</nav>
 		</header>
 
 		<div id="page-content">
 			<%= @content %>
-			<%= @comment unless @comment.nil? %>
-			<%= @comment_form unless @comment_form.nil? %>
 		</div>
 
 		<footer>

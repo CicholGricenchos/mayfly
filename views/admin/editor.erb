@@ -1,0 +1,36 @@
+<style type="text/css">
+	input,textarea {
+		width: 750px;
+	}
+	#brief {
+		height: 50px;
+	}
+	#content {
+		height: 500px;
+	}
+</style>
+
+<form action="<%= @target %>" method="post">
+<p>标题: <input type="text" name="title" value="<%= @title %>" /></p>
+<p>摘要：<textarea id="brief" name="brief"><%= @brief %></textarea></p>
+<p>正文<textarea id="content" name="content"><%= @content %></textarea></p>
+<p>作者: <select name="author">
+	<% 
+		user = ""
+		User.all.each do |x|
+			user += "<option value=\"#{x.id}\">#{x.name}</option>"
+		end
+	%>
+	<%= user %>
+</select></p>
+<p>分类: <select name="category">
+	<% 
+		category = ""
+		Category.all.each do |x|
+			category += "<option value=\"#{x.id}\">#{x.name}</option>"
+		end
+	%>
+	<%= category %>
+</select></p>
+<input type="submit" value="提交" />
+</form>

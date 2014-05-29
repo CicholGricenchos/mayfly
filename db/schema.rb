@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521085634) do
+ActiveRecord::Schema.define(version: 20140529081721) do
 
   create_table "article_comments", force: true do |t|
     t.string   "author"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20140521085634) do
 
   create_table "categories", force: true do |t|
     t.string "name"
+  end
+
+  create_table "site_configs", force: true do |t|
+    t.string "name"
+    t.string "value"
   end
 
   create_table "users", force: true do |t|

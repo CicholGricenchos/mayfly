@@ -101,6 +101,7 @@ aside ul li a:hover {
 	color: #21759b;
 	text-decoration: underline;
 }
+
 footer {
 	display: inline-block;
 	width: 960px;
@@ -174,6 +175,7 @@ article .article-footer a:hover {
 	text-decoration: underline;
 }
 .comment {
+	width: 500px;
 	padding: 7px 0px;
 	border-bottom: 1.2px solid #ddd;
 }
@@ -185,10 +187,22 @@ article .article-footer a:hover {
 }
 
 .comment .comment-time {
-	margin-left: 10px;
+	margin-left: 15px;
 	font-size: 13px;
 	display: inline;
 	color: #777;
+}
+
+.comment .reply {
+	float: right;
+	margin-right: 0px;
+	font-size: 13px;
+	display: inline;
+	color: #777;
+}
+
+.comment .reply:hover {
+	color: #21759b;
 }
 
 .comment .comment-content {
@@ -201,10 +215,28 @@ article .article-footer a:hover {
 }
 
 .comment-form .input-author {
-	width: 468px;
+	width: 496px;
 }
+
 .comment-form .input-content {
-	width: 468px;
+	width: 494px;
 	height: 50px;
 	margin: 10px 0px;
+}
+
+.page-bar {
+	display: block;
+	width: 624px;
+}
+
+.page-bar a {
+	font-family: Simsun,serif;
+	color: #777;
+	font-size: 14px;
+	text-decoration: underline;
+}
+
+.page-bar a:hover {
+	color: #21759b;
+	text-decoration: underline;
 }

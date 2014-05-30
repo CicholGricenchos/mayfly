@@ -11,7 +11,7 @@ require './models/site_config'
 require 'fileutils'
 require './controllers/admin'
 
-$SITE_URL = "http://localhost:4567"
+$SITE_URL = "http://may-fly.org"
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 

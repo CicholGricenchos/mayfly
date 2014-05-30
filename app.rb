@@ -13,6 +13,7 @@ require './controllers/admin'
 
 $SITE_URL = "http://may-fly.org"
 
+
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
 enable :sessions

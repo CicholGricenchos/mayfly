@@ -11,13 +11,13 @@ require './models/site_config'
 require 'fileutils'
 require './controllers/admin'
 
-$SITE_URL = "http://may-fly.org"
+$SITE_URL = "http://localhost:4567"
 
 set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 
 enable :sessions
 
-def site_config 
+before do
   @site_title = SiteConfig.where(:name => 'site_title')[0].value
   @site_description = SiteConfig.where(:name => 'site_description')[0].value
   @site_footer = SiteConfig.where(:name => 'site_footer')[0].value
@@ -26,7 +26,6 @@ end
 get '/' do
   @page = params[:page].nil? ? 1 : params[:page].to_i
   @max_page= Article.count / 7 + 1
-  site_config
   @page_title = @site_title
   articles = Article.order("id DESC").where("category != 4").limit(7).offset((@page-1)*7)
   @content = ""
@@ -57,15 +56,15 @@ get '/' do
 end
 
 get "/article/:id" do 
-  site_config
   article = Article.find(params[:id])
   @content = Maruku.new(article.content).to_html
   @title = article.title
   @date = article.created_at.getlocal.strftime("%Y-%m-%d  %H:%M")
   @brief = article.brief
   @author = User.find(article.author).name
+  @author_id = article.author
   @category = Category.find(article.category).name
-  @category_id = Category.find(article.category).id
+  @category_id = article.category
   @page_title = "#{@site_title} - #{@title}"
   @content = erb :article
   @category_list = ""
@@ -94,7 +93,6 @@ end
 get "/category/:id" do 
   @page = params[:page].nil? ? 1 : params[:page].to_i
   @max_page= Article.where(:category => params[:id].to_i).count / 7 + 1
-  site_config
   @name = Category.find(params[:id].to_i).name
   @page_title = "#{@site_title} - #{@name}"
   articles = Article.where(:category => params[:id].to_i).order("id DESC").limit(7).offset((@page-1)*7)
@@ -105,8 +103,9 @@ get "/category/:id" do
     @title = x.title
     @date = x.created_at.getlocal.strftime("%Y-%m-%d  %H:%M")
     @author = User.find(x.author).name
+    @author_id = x.author
     @category = Category.find(x.category).name
-    @category_id = Category.find(x.category).id
+    @category_id = x.category
     @content += erb :article_list
   end
   @category_list = ""
@@ -123,7 +122,6 @@ get "/category/:id" do
 end
 
 get "/user/:id" do 
-  site_config
   user = User.find(params[:id])
   @introduction = Maruku.new(user.introduction).to_html
   @name = user.name
@@ -136,6 +134,7 @@ get "/user/:id" do
     @category_name = x.name
     @category_list += erb :category_list
   end
+  @nav = erb :nav
   erb :site_page
 end
 
@@ -145,7 +144,6 @@ post "/article_comment/:id" do
     session[:last_comment] = Time.now.to_i
     redirect to("/article/#{params[:id]}")
   else
-    site_config
     @page_title = @site_title
     @nav = erb :nav
     @category_list = ""

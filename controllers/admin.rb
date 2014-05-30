@@ -1,6 +1,6 @@
 #encoding : utf-8
 
-require 'digest'
+#require 'digest'
 
 get "/admin/login" do 
   erb :'admin/login'
@@ -13,7 +13,8 @@ end
 
 post "/admin/login" do 
   user = User.where(:name => params[:name])[0]
-  if user.password == Digest::MD5.hexdigest(Digest::MD5.hexdigest(params[:pass]))
+#  if user.password == Digest::MD5.hexdigest(Digest::MD5.hexdigest(params[:pass]))
+  if user.password == params[:pass]
     session[:user_id] = user.id
     return "<a href=\"../admin\"> #{user.name}，欢迎回来。</a>"
   else

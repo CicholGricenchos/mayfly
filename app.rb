@@ -36,8 +36,9 @@ get '/' do
     @title = x.title
     @date = x.created_at.getlocal.strftime("%Y-%m-%d  %H:%M")
     @author = User.find(x.author).name
+    @author_id = x.author
     @category = Category.find(x.category).name
-    @category_id = Category.find(x.category).id
+    @category_id = x.category
     @content += erb :article_list
   end
   @category_list = ""

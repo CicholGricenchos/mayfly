@@ -119,7 +119,7 @@ end
 
 get "/admin/new/article" do 
   return if session[:user_id]!=1
-  @target = "#{$SITE_URL}/new/article"
+  @target = "#{$SITE_URL}/admin/new/article"
   @content = erb :'admin/editor'
   erb :'admin/admin'
 end

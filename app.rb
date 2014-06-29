@@ -13,8 +13,9 @@ require './controllers/admin'
 
 $SITE_URL = "http://may-fly.org"
 
-
-set :database, {adapter: "sqlite3", database: "development.sqlite3"}
+#set :database, {adapter: "sqlite3", database: "development.sqlite3"}
+#set :database, {:adapter => 'mysql2', :host => 'localhost', :database => "mayfly", :username => 'root', :password => 'freedom'}
+set :database, {adapter: "mysql2", database: "Cichol-mysql-4KhVRuzc", username: "AVc8Un16", password: "EsWM78a86GVq", host: "10.0.16.16", port: 4066}
 
 enable :sessions
 
@@ -141,7 +142,7 @@ get "/user/:id" do
 end
 
 post "/article_comment/:id" do 
-  if Time.now.to_i-session[:last_comment] > 600
+  if session[:last_comment].nil? || Time.now.to_i-session[:last_comment] > 600
     ArticleComment.create(:article_id => params[:id].to_i, :content => params[:content].gsub(/<\/?.*?>/,""), :author => params[:name].gsub(/<\/?.*?>/,""))
     session[:last_comment] = Time.now.to_i
     redirect to("/article/#{params[:id]}")

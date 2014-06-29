@@ -22,6 +22,7 @@ GEM
     json (1.8.1)
     maruku (0.7.1)
     minitest (5.3.4)
+    mysql2 (0.3.16)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -47,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   maruku
+  mysql2
   sinatra
   sinatra-activerecord
   sqlite3

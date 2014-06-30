@@ -8,7 +8,6 @@ require './models/user'
 require './models/category'
 require './models/article_comment'
 require './models/site_config'
-require 'fileutils'
 require './controllers/admin'
 
 $SITE_URL = "http://may-fly.org"
@@ -142,7 +141,7 @@ get "/user/:id" do
 end
 
 post "/article_comment/:id" do 
-  if session[:last_comment].nil? || Time.now.to_i-session[:last_comment] > 600
+  if session[:last_comment].nil? || Time.now.to_i-session[:last_comment] > 60
     ArticleComment.create(:article_id => params[:id].to_i, :content => params[:content].gsub(/<\/?.*?>/,""), :author => params[:name].gsub(/<\/?.*?>/,""))
     session[:last_comment] = Time.now.to_i
     redirect to("/article/#{params[:id]}")

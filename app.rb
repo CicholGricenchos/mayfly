@@ -10,11 +10,32 @@ require './models/article_comment'
 require './models/site_config'
 require './controllers/admin'
 
-$SITE_URL = "http://may-fly.org"
+$SITE_URL = "http://localhost:4567"
 
 #set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 #set :database, {:adapter => 'mysql2', :host => 'localhost', :database => "mayfly", :username => 'root', :password => 'freedom'}
 set :database, {adapter: "mysql2", database: "Cichol-mysql-4KhVRuzc", username: "AVc8Un16", password: "EsWM78a86GVq", host: "10.0.16.16", port: 4066}
+
+ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter.class_eval do
+  def begin_db_transaction
+    execute "SET AUTOCOMMIT=0"
+  rescue
+  end
+
+  def commit_db_transaction #:nodoc:
+    execute "COMMIT"
+    execute "SET AUTOCOMMIT=1"
+  rescue
+    # Transactions aren't supported
+  end
+
+  def rollback_db_transaction #:nodoc:
+    execute "ROLLBACK"
+    execute "SET AUTOCOMMIT=1"
+  rescue
+    # Transactions aren't supported
+  end
+end
 
 enable :sessions
 

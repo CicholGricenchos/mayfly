@@ -1,0 +1,6 @@
+<div class="comment">
+	<p class="comment-author"><%= @comment_author %></p>
+	<p class="comment-time"><%= @comment_time %></p>
+	<a class="reply" href="#comment-form" onclick="document.getElementById('comment-form-content').focus(); document.getElementById('comment-form-content').innerHTML='回复 <%= @comment_author %> ：'">回复</a>
+	<p class="comment-content"><%= @comment_content %></p>
+</div>

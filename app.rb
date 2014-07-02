@@ -10,7 +10,7 @@ require './models/article_comment'
 require './models/site_config'
 require './controllers/admin'
 
-$SITE_URL = "http://localhost:4567"
+$SITE_URL = "http://may-fly.org"
 
 #set :database, {adapter: "sqlite3", database: "development.sqlite3"}
 #set :database, {:adapter => 'mysql2', :host => 'localhost', :database => "mayfly", :username => 'root', :password => 'freedom'}

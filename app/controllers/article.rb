@@ -1,3 +1,5 @@
+#encoding : utf-8
+
 Mayfly::App.controllers :article do
   before do 
     @categories = Category.all

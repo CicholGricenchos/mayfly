@@ -1,3 +1,5 @@
+#encoding : utf-8
+
 Mayfly::App.controllers :base do
   get :index, :map=>'/' do 
     @nav = 'index'

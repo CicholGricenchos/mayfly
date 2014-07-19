@@ -1,0 +1,49 @@
+<% error = @article.errors.include?(:title) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :title, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :title, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:title) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article.errors.include?(:brief) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :brief, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_area :brief, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:brief) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article.errors.include?(:content) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :content, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_area :content, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:content) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article.errors.include?(:category_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :category_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :category_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:category_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article.errors.include?(:author) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :author, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :author, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:author) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:articles, :index), :class => 'btn btn-default' %>
+</div>

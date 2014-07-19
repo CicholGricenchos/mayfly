@@ -1,0 +1,33 @@
+<% error = @article_comment.errors.include?(:author) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :author, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :author, :class => 'form-control input-xlarge input-with-feedback', :autofocus => true %>
+    <span class='help-inline'><%= error ? f.error_message_on(:author) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article_comment.errors.include?(:content) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :content, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_area :content, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:content) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+<% error = @article_comment.errors.include?(:article_id) %>
+<fieldset class='control-group <%= error ? 'has-error' : ''%>'>
+  <%= f.label :article_id, :class => 'control-label' %>
+  <div class='controls'>
+    <%= f.text_field :article_id, :class => 'form-control input-xlarge input-with-feedback' %>
+    <span class='help-inline'><%= error ? f.error_message_on(:article_id) : "Ex: a simple text" %></span>
+  </div>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit pat(:save), :class => 'btn btn-primary' %>
+  &nbsp;
+  <%= f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue' %>
+  &nbsp;
+  <%= link_to pat(:cancel), url(:article_comments, :index), :class => 'btn btn-default' %>
+</div>

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529081721) do
+ActiveRecord::Schema.define(version: 4) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.string   "surname"
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "article_comments", force: true do |t|
     t.string   "author"
@@ -27,25 +37,21 @@ ActiveRecord::Schema.define(version: 20140529081721) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "author"
-    t.integer  "category"
+    t.string   "author"
+    t.integer  "category_id"
   end
 
   create_table "categories", force: true do |t|
     t.string "name"
   end
 
+  create_table "schema_info", id: false, force: true do |t|
+    t.integer "version", default: 0, null: false
+  end
+
   create_table "site_configs", force: true do |t|
     t.string "name"
     t.string "value"
-  end
-
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password"
-    t.text     "introduction"
   end
 
 end

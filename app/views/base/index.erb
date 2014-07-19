@@ -1,0 +1,12 @@
+<% @articles.each do |article| %>
+	<article>
+		<h2 class="article-title"><%= link_to article.title, "/article/#{article.id}" %></h2>
+		<p class="article-brief">摘要：<%= article.brief %></p>
+		<p class="article-footer">本条目发布于<time><%= article.created_at.getlocal.strftime("%Y-%m-%d  %H:%M") %></time>。属于<%= link_to article.category.name, "/category/#{article.category.id}" %>分类。作者是<%= article.author %>。</p>
+	</article>
+<% end %>
+
+<div class="page-bar">
+	<%= link_to '←上一页', "?page=#{@page-1}", :style=>'float: left;' if @page > 1 %>
+	<%= link_to '下一页→', "?page=#{@page+1}", :style=>'float: right;' if @page < @max_page %>
+</div>

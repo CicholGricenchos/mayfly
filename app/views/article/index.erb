@@ -1,0 +1,22 @@
+<article>
+
+	<h2 class="article-title"><%= @article.title %></h2>
+	<p class="article-brief">摘要：<%= @article.brief %></p>
+	<%= Maruku.new(@article.content).to_html.html_safe %>
+	<p class="article-footer">本条目发布于<time><%= @article.created_at.getlocal.strftime("%Y-%m-%d  %H:%M") %></time>。属于<%= link_to @article.category.name, "/category/#{@article.category.id}" %>分类。作者是<%= @article.author %>。</p>
+</article>
+
+<% @article.article_comments.each do |comment| %>
+	<div class="comment">
+		<p class="comment-author"><%= comment.author %></p>
+		<p class="comment-time"><%= comment.created_at.getlocal.strftime("%Y-%m-%d  %H:%M") %></p>
+		<a class="reply" href="#comment-form" onclick="document.getElementById('comment-form-content').focus(); document.getElementById('comment-form-content').innerHTML='回复 <%= comment.author %> ：'">回复</a>
+		<p class="comment-content"><%= comment.content %></p>
+	</div>
+<% end %>
+
+<% form_tag "/article/#{@article.id}/comment", :class =>'comment-form' do %>
+	<%= text_field_tag 'name', :class=>'input-author', :value=>'输入名称' %>
+	<%= text_area_tag 'content', :id=>'comment-form-content', :class=>'input-content', :value=> '输入留言' %>
+	<%= submit_tag "提交" %>
+<% end %>

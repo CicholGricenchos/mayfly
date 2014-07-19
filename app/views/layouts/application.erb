@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><%= @page_title %></title>
+
+	<%= "<meta name=\"description\" content=\"#{@meta_description}\" />" unless @meta_description.nil? %>
+	<%= "<meta name=\"keywords\" content=\"#{@meta_keywords}\" />" unless @meta_keywords.nil? %>
+	<%= stylesheet_link_tag 'style' %>
+
+	</head>
+
+	<body>
+	<div id="page">
+	
+		<header>
+		<hgroup>
+			<h1 id="site-title"><%= link_to "蜉蝣人文爱好小组", '/' %></h1>
+			<p id="site-description">心之忧矣，於我归处。</p>
+		</hgroup>
+
+			<nav>	
+				<%= link_to "首页", '/',:class=> @nav=='index'? 'current': '' %>
+				<%= link_to "关于我们", '/article/9',:class=> @nav=='about'? 'current': '' %>
+				<%= link_to "策划", '/category/1',:class=> @nav=='design'? 'current': '' %>
+
+			</nav>
+		</header>
+
+		<div id="page-content">
+			<%= yield %>
+		</div>
+
+		<aside>
+			<ul><p class="menu-title">分类目录</p>
+				<% @categories.each do |category| %>
+					<li><%= link_to category.name, "/category/#{category.id}" %></li>
+				<% end %>
+			</ul>
+		</aside>
+
+		<footer>
+			<p>powered by CicholGricenchos</p>
+		</footer>
+	</div>
+	</body>
+</html>

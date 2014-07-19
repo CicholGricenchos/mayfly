@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://172.18.137.246/
   specs:
     activemodel (4.1.4)
       activesupport (= 4.1.4)

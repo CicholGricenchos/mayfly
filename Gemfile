@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.com'
+source 'http://172.18.137.246'
 
 # Distribute your app as a gem
 # gemspec

@@ -1,4 +1,4 @@
-source 'http://172.18.137.246'
+source 'https://ruby.taobao.com'
 
 # Distribute your app as a gem
 # gemspec
@@ -21,6 +21,7 @@ gem 'sqlite3'
 gem 'slim'
 gem 'maruku'
 gem 'mysql2'
+gem 'thin'
 # Test requirements
 
 # Padrino Stable Gem

@@ -69,24 +69,3 @@ ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations[Padrin
 # Timestamps are in the utc by default.
 ActiveRecord::Base.default_timezone = :utc
 
-
-ActiveRecord::ConnectionAdapters::AbstractMysqlAdapter.class_eval do
-  def begin_db_transaction
-    execute "SET AUTOCOMMIT=0"
-  rescue
-  end
-
-  def commit_db_transaction #:nodoc:
-    execute "COMMIT"
-    execute "SET AUTOCOMMIT=1"
-  rescue
-    # Transactions aren't supported
-  end
-
-  def rollback_db_transaction #:nodoc:
-    execute "ROLLBACK"
-    execute "SET AUTOCOMMIT=1"
-  rescue
-    # Transactions aren't supported
-  end
-end

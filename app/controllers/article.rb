@@ -8,7 +8,7 @@ Mayfly::App.controllers :article do
   get :index, :with => :id do 
     @nav = 'about' if params[:id]=='9'
     @article = Article.find(params[:id])
-    @page_title = "蜉蝣人文爱好小组 - #{@article.title}"
+    @page_title = "#{$SITE_CONFIG[:site_title]} - #{@article.title}"
     @meta_description = @article.brief
     render :index
   end

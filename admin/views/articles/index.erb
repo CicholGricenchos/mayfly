@@ -39,9 +39,10 @@
                 <th class=header> <%= mat(:article, :id) %></th>
                 <th class=header> <%= mat(:article, :title) %></th>
                 <th class=header> <%= mat(:article, :brief) %></th>
-                <th class=header> <%= mat(:article, :content) %></th>
+                <!-- <th class=header> <%= mat(:article, :content) %></th> -->
                 <th class=header> <%= mat(:article, :category_id) %></th>
                 <th class=header> <%= mat(:article, :author) %></th>
+                <th class=header> <%= mat(:article, :visible) %></th>
                 <th class=header> <%= mat(:article, :created_at) %></th>
                 <th class=header> <%= mat(:article, :updated_at) %></th>
                 <th class="header list-row-action-header"></th>
@@ -56,9 +57,10 @@
           <td class=list-column> <%= article.id %> </td>
           <td class=list-column> <%= article.title %> </td>
           <td class=list-column> <%= article.brief %> </td>
-          <td class=list-column> <%= article.content %> </td>
+          <!-- <td class=list-column> <%= article.content %> </td> -->
           <td class=list-column> <%= article.category_id %> </td>
           <td class=list-column> <%= article.author %> </td>
+          <td class=list-column> <%= article.visible %> </td>
           <td class=list-column> <%= time_ago_in_words article.created_at %></td>
           <td class=list-column> <%= time_ago_in_words article.updated_at %></td>
           <td class="list-column list-row-action">

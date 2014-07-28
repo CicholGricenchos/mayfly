@@ -15,8 +15,8 @@
 	
 		<header>
 		<hgroup>
-			<h1 id="site-title"><%= link_to "蜉蝣人文爱好小组", '/' %></h1>
-			<p id="site-description">心之忧矣，於我归处。</p>
+			<h1 id="site-title"><%= link_to $SITE_CONFIG[:site_title], '/' %></h1>
+			<p id="site-description"><%= $SITE_CONFIG[:site_description] %></p>
 		</hgroup>
 
 			<nav>	
@@ -40,7 +40,7 @@
 		</aside>
 
 		<footer>
-			<p>powered by CicholGricenchos</p>
+			<p><%= $SITE_CONFIG[:site_footer] %></p>
 		</footer>
 	</div>
 	</body>

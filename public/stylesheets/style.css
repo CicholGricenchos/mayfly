@@ -216,6 +216,7 @@ article .article-footer a:hover {
 
 .comment-form .input-author {
 	width: 496px;
+	font-family: Simsun;
 }
 
 .comment-form .input-content {
@@ -223,6 +224,7 @@ article .article-footer a:hover {
 	height: 50px;
 	margin: 10px 0px;
 	display: block;
+	font-family: Simsun;
 }
 
 .page-bar {

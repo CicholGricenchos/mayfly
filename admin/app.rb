@@ -33,6 +33,7 @@ module Mayfly
     end
 
     access_control.roles_for :admin do |role|
+      role.project_module :site_configs, '/site_configs'
       role.project_module :article_comments, '/article_comments'
       role.project_module :accounts, '/accounts'
       role.project_module :articles, '/articles'

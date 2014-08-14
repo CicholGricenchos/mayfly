@@ -1,4 +1,4 @@
-RACK_ENV = 'production'
+#RACK_ENV = 'production'
 
 # Defines our constants
 RACK_ENV = ENV['RACK_ENV'] ||= 'development'  unless defined?(RACK_ENV)

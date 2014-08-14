@@ -32,6 +32,14 @@
 		</div>
 
 		<aside>
+			<% form_tag "/search", :class =>'search-form', :method=>'get' do %>
+				<%= text_field_tag 'keyword', :class=>'input-search' %>
+				<%= submit_tag "搜索", :class=>'search-button' %>
+			<% end %>
+		</aside>
+
+		<aside>
+
 			<ul><p class="menu-title">分类目录</p>
 				<% @categories.each do |category| %>
 					<li><%= link_to category.name, "/category/#{category.id}" %></li>

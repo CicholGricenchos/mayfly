@@ -17,6 +17,5 @@ Mayfly::App.controllers :article do
     ArticleComment.create(:article_id => params[:id].to_i, :content => params[:content].gsub(/<\/?.*?>/,""), :author => params[:name].gsub(/<\/?.*?>/,""))
     redirect to("/article/#{params[:id]}")
   end
-  
 
 end

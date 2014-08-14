@@ -72,6 +72,7 @@ aside {
 	width: 192px;
 	float: left;
 	margin-left: 50px;
+	margin-top: 20px;
 }
 
 aside ul .menu-title {
@@ -220,7 +221,7 @@ article .article-footer a:hover {
 }
 
 .comment-form .input-content {
-	width: 494px;
+	width: 492px;
 	height: 50px;
 	margin: 10px 0px;
 	display: block;
@@ -242,4 +243,25 @@ article .article-footer a:hover {
 .page-bar a:hover {
 	color: #21759b;
 	text-decoration: underline;
+}
+
+input, textarea {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+aside .search-form {
+	display: inline;
+	margin-left: 40px;
+	height: 50px;
+}
+
+aside .search-form .input-search {
+	width: 120px;
+	height: 25px;
+}
+
+aside .search-form .search-button {
+	width: 50px;
+	height: 29px;
 }
